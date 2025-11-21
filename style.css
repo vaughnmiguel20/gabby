@@ -7,7 +7,7 @@
 html, body {
     height: 100%;
     width: 100%;
-    background: linear-gradient(to right, #ffb6c1, #ff69b4); /* full pink gradient */
+    background: linear-gradient(to right, #ffb6c1, #ff69b4);
     overflow: hidden;
     color: #000;
     font-family: system-ui, sans-serif;
@@ -24,7 +24,7 @@ html, body {
     align-items: center;
     justify-content: space-between;
     padding: 0 5%;
-    background: rgba(255, 192, 203, 0.5); /* transparent pink bar */
+    background: rgba(255, 192, 203, 0.5);
     backdrop-filter: blur(8px);
     box-shadow: 0 0 20px rgba(255, 182, 193, 0.6);
     z-index: 100;
@@ -63,7 +63,7 @@ nav ul li:hover {
     transform: translate(-50%, -50%);
     width: 100vw;
     height: 100vh;
-    background: rgba(255, 240, 245, 0.8); /* very light pink overlay */
+    background: rgba(255, 240, 245, 0.8);
     box-shadow: 0 0 60px rgba(255, 182, 193, 0.8);
     border-radius: 0;
     overflow: hidden;
@@ -106,23 +106,27 @@ nav ul li:hover {
     left: calc(50% + 440px);
 }
 
-/* hide extra slides */
 .slide .item:nth-child(n + 6) {
     left: calc(50% + 660px);
     opacity: 0;
 }
 
-/* 🌸 Text Content */
+/* 🌸 Text Content (Left Middle Position) */
 .item .content {
     position: absolute;
     top: 50%;
-    left: 100px;
-    width: 300px;
+    left: 80px; /* distance from left side */
+    transform: translateY(-50%);
+    width: 35%;
+    max-width: 450px;
     text-align: left;
     color: #fff;
-    transform: translate(0, -50%);
-    font-family: system-ui;
     display: none;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: none; /* removed pink box */
+    animation: fadeText 1.2s ease-in-out forwards;
 }
 
 .slide .item:nth-child(2) .content {
@@ -130,51 +134,21 @@ nav ul li:hover {
 }
 
 .content .name {
-    font-size: 3rem;
-    text-transform: uppercase;
+    font-size: 2rem;
     font-weight: bold;
-    opacity: 0;
-    animation: animate 1s ease-in-out 1 forwards;
     text-shadow: 0 0 15px rgba(255, 105, 180, 0.9);
+    line-height: 1.4;
 }
 
-.content .des {
-    margin-top: 10px;
-    margin-bottom: 20px;
-    opacity: 0;
-    animation: animate 1s ease-in-out 0.3s 1 forwards;
-}
-
-.content button {
-    padding: 12px 25px;
-    border: none;
-    cursor: pointer;
-    border-radius: 10px;
-    background-color: #ff69b4;
-    color: #fff;
-    font-weight: bold;
-    opacity: 0;
-    animation: animate 1s ease-in-out 0.6s 1 forwards;
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.8);
-    transition: 0.3s;
-}
-
-.content button:hover {
-    background-color: #ff85c1;
-    box-shadow: 0 0 30px rgba(255, 105, 180, 1);
-}
-
-/* 🌸 Animation */
-@keyframes animate {
+/* 🌸 Fade animation */
+@keyframes fadeText {
     from {
         opacity: 0;
-        transform: translate(0, 100px);
-        filter: blur(33px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translate(0);
-        filter: blur(0);
+        transform: translateY(-50%);
     }
 }
 
@@ -208,41 +182,13 @@ nav ul li:hover {
 
 /* 🌸 Mobile friendly */
 @media only screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        height: auto;
-        padding: 10px;
+    .content {
+        width: 80%;
+        left: 10%;
+        padding: 15px;
     }
 
     .content .name {
-        font-size: 2rem;
-    }
-
-    .content {
-        left: 50px;
-        width: 250px;
+        font-size: 1.4rem;
     }
 }
-.text-overlay {
-  position: absolute;
-  top: 45%;
-  left: 15%;
-  width: 40%;
-  color: #fff;
-  background: rgba(255, 182, 193, 0.25); /* soft pink background */
-  padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 0 25px rgba(255, 105, 180, 0.6); /* glowing pink shadow */
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  text-shadow: 0 0 10px rgba(255, 192, 203, 0.6);
-}
-
-.text-overlay p {
-  margin: 0;
-  font-weight: 500;
-}
-
-
